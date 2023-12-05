@@ -67,7 +67,6 @@ class SSOAuthenticator:
         }
 
        response = self.session.post( webclass_sp_authentication_url , data = payload ) # webclass_sp_authentication_urlにgetすることで,token(cookie)を得る
-       print( response.status_code )
 
        # 目的のspでの認証用token(cookie)が正常に取得されているかチェック(数も少ない為全探索方式で)
        cookies_text = requests.utils.dict_from_cookiejar( self.session.cookies )

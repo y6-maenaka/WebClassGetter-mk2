@@ -1,6 +1,8 @@
 .env
 documents.txt 
 encoder.py
+loader.py
+loader_2.py
 flow.py
 .DS_Store
 

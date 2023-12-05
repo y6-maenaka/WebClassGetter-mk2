@@ -1,19 +1,11 @@
 from sso_authenticator import SSOAuthenticator
+from webclass_manager import WebClassManager
 
 from dotenv import load_dotenv
 load_dotenv()
 import os
 import sys
 import requests
-
-
-
-univ_name = "miyazaki"
-
-webclass_base_url = "https://webclass.eden." + univ_name + "-u.ac.jp/webclass/"
-sso_authentication_base_url = "https://midp.cc." + univ_name + "-u.ac.jp/AccessManager/profile/SAML2/Redirect/SSO"
-inquire_shibsession_cookie_url = "https://webclass.eden." + univ_name + "-u.ac.jp/Shibboleth.sso/SAML2/POST"
-
 
 
 
@@ -33,14 +25,13 @@ if __name__ == "__main__":
 
 
     authenticator = SSOAuthenticator( session , user_mid , user_password )
-    authenticator.complete_webclass_authenticate()
+    if not authenticator.complete_webclass_authenticate():
+        sys.exit("SSO認証に失敗しました")
+
+    webclass_manager = WebClassManager( session )
 
 
-    print("Result")
-    cookies_text = requests.utils.dict_from_cookiejar( session.cookies )
-    for cookie in cookies_text:
-        print(cookie)
-
-
+    
+   
 
 
