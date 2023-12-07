@@ -1,756 +1,116 @@
-<!doctype html>
-<html lang="ja">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="format-detection" content="telephone=no">
-    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>通信工学（情報Ｐ）　[6C490:2023年度後期] - WebClass</title>
-    <link href="/webclass/css/bootstrap_blue.css?time=1692424548" rel="stylesheet" type="text/css" />
-    <link href="/webclass/css/webclass.css?time=1692424548" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link type="text/css" href="/webclass/css/transitional.css" rel="stylesheet">
+    <link href="/webclass/css/bootstrap.min.css?time=1692424548" rel="stylesheet" type="text/css" />
+    <style>
+        html {
+            height: 100%;
+            width: 100%;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            color: #333333;
+            background: #eeeeee;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            display: flex;
+        }
+        #top {
+            min-height: 200px;
+            width: 100%;
+        }
+        hr {
+            margin-top : 0.5em;
+            margin-bottom: 0.5em;
+            border-color: #999999;
+        }
+        #naviLayout {
+            border-collapse: collapse;
+        }
+        #naviLayout td {
+            padding: 3px;
+        }
+        #TOC {
+            flex: 1;
+        }
 
-    <script class="js-config" type="application/json">{"TOP_URL":"\/webclass\/","language":"JAPANESE","loading_image_url":"\/webclass\/images\/loading.gif","feature.message":true,"feature.information":1,"message-alert":false,"max_upload_file_size":314572800}</script>
-    <script class="js-message" type="application/json">{"YOU_HAVE_NEW_INFORMATION":"\u304a\u77e5\u3089\u305b\u304c\u3042\u308a\u307e\u3059\u3002","YOU_HAVE_NEW_MESSAGES":"\u30e1\u30c3\u30bb\u30fc\u30b8\u304c\u3042\u308a\u307e\u3059\u3002"}</script>
-    <script src="/webclass/js/jquery/jquery-1.9.1.min.js"></script>
-    <script src="/webclass/js/webclass.js?time=1692424555"></script>
-    <script src="/webclass/js/wcui/wcwindow.js?time=1692424556"></script>
-    <script src="/webclass/js/bootstrap.min.js?time=1692424555"></script>
-    <script src="/webclass/js/vendor.js?time=1692424555"></script>
-    <script src="/webclass/js/notification.js?time=1692424555"></script>
+        #TOCLayout {
+            border-collapse: collapse;
+        }
+        #TOCLayout td {
+            padding: 2px;
+        }
+        /*
+        BGCOLOR='#EEEEEE' TEXT='#333333' LINK='#4169E1' VLINK='#4169E1' ALINK='#6666FF'
+
+         */
+    </style>
+
+    <script type="text/javascript" src="/webclass/js/jquery/jquery-1.9.1.min.js?time=1692424556" ></script>
+    <script id="json-data" class="js-config" type="application/json">{"TOP_URL":"\/webclass\/","language":"JAPANESE","loading_image_url":"\/webclass\/images\/loading.gif","feature.message":true,"feature.information":1,"message-alert":false,"contents_id":"cc4e20e8125fab1df9a57ec55663da1d","contents_end_datetime":"","deadlineRemainTime":-1,"extratime_mode":false,"do_contents.update_interval":60,"page":1,"text_url":"\/webclass\/txtbk_show_text.php?page=1&text=4762a9ec1471c51795e90e89c5e0a82a&file=212312c07b7f584fdc288ef89d206c8e%2Fplaylist_1024x768%264x3.m3u8&contents_dir=%2Fopt%2Fwebclass%2Fwebroot%2Fwebclass%2Fdata%2Fcourse%2F6c%2F6C530-2023%2F&contents_url=%2Fwebclass%2Fdata%2Fcourse%2F6c%2F6C530-2023%2F&contents_id=cc4e20e8125fab1df9a57ec55663da1d&acs_=c06019ec","text_urls":{"1":"\/webclass\/txtbk_show_text.php?page=1&text=4762a9ec1471c51795e90e89c5e0a82a&file=212312c07b7f584fdc288ef89d206c8e%2Fplaylist_1024x768%264x3.m3u8&contents_dir=%2Fopt%2Fwebclass%2Fwebroot%2Fwebclass%2Fdata%2Fcourse%2F6c%2F6C530-2023%2F&contents_url=%2Fwebclass%2Fdata%2Fcourse%2F6c%2F6C530-2023%2F&contents_id=cc4e20e8125fab1df9a57ec55663da1d"},"showTOC":true,"load_from_bookmark":0}</script>
+    <script id="json-lang" class="js-message" type="application/json">{"PAGE_UNLOAD_STRING":"\u4e0d\u6b63\u306a\u30da\u30fc\u30b8\u79fb\u52d5\u3092\u691c\u77e5\u3057\u307e\u3057\u305f\u3002\\n\u3053\u306e\u6559\u6750\u3092\u5b89\u5168\u306b\u7d42\u4e86\u3059\u308b\u306b\u306f\u300c\u30ad\u30e3\u30f3\u30bb\u30eb\u300d\u30dc\u30bf\u30f3\u3092\u62bc\u3057\u3066\u623b\u308a\u3001\u300c\u7d42\u4e86\u300d\u30dc\u30bf\u30f3\u3092\u62bc\u3057\u3066\u304f\u3060\u3055\u3044\u3002","MINUTE":"\u5206","SECOND":"\u79d2","ENDMSG":"\u95b2\u89a7\u7d42\u4e86\u306e\u6642\u9593\u3067\u3059\u3002"}</script>
+    <script type="text/javascript">
+
+        	function filedownload(openurl) {
+		w = window.open(openurl, "download",
+				"toolbar=no,location=no,directories=no,status=yes,menubar=no,scrollbars=yes,resizable=yes,width=320,height=250");
+		w.window.focus();
+	}
+
+        function printtextbook() {
+            parent.webclass_content.focus();
+            parent.webclass_content.print();
+        }
+
+        function quit() {
+            document.app.quit();
+        }
+        function clickBookmark() {
+            document.app.bookmark();
+        }
+        function prevPage() {
+            document.app.movePagePrev();
+        }
+        function nextPage() {
+            document.app.movePageNext();
+        }
+        function showTOC() {
+            document.app.showTOC();
+        }
+        function hideTOC() {
+            document.app.hideTOC();
+        }
+        function gopage(page) {
+            document.app.movePageTo(page);
+        }
+    </script>
+
+    <title>【参考】01-1 プログラム言語論(06:20) - WebClass</title>
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <div class="navbar-brand" style="height: auto;">
-                                        <a class="hidden-xs course-webclass" href="/webclass/course.php/6C490-2023/logout" style="display: block; font-size: 14px;">
-                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                        WebClass</a>
-                                        <a class="course-name" href="/webclass/course.php/6C490-2023/">通信工学（情報Ｐ）　[6C490:2023年度後期]</a>
-                </div>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
-                    <span class="sr-only">ナビゲーション</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span id="mobile-menu-badge" class="hd-mobileMenu_badge hidden hidden-sm hidden-md hidden-lg"></span>
-                </button>
-            </div>
-            <ul class="nav navbar-nav navbar-right hidden-xs">
-                <li id="notification-dropdown-area" class="dropdown">
-                                        <a id="notification-dropdown-icon" class="dropdown-toggle disabled"
-                       href="/webclass/msg_editor.php?msgappmode=inbox&amp;acs_=989a77d3"
-                       onclick="return openMessageWindow('/webclass/msg_editor.php?msgappmode=inbox&amp;acs_=989a77d3')"
-                       target="msgeditor" aria-haspopup="true" aria-expanded="true">
-                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                        <span id="js-unread-message-count" class="badge hidden hd-notification_badge"></span>
-                    </a>
-                                        <ul id="notification-dropdown-menu" class="dropdown-menu" data-toggle="dropdown"  aria-labelledby="notification-dropdown-icon">
-                    </ul>
-                </li>
-                                <li class="dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown" style="padding: 10px;" title="アカウントメニュー">
-                    <span>前中　優里</span>
-                      <img width="30" src="/webclass/user.php/identicon.png" style="border: solid #ffffff; background: #ffffff"></a>                    <ul class="dropdown-menu">
-                        <li class=""><a class="account-menu__menu__link" href="/webclass/course.php/6C490-2023/logout?acs_=989a77d3"  >コースリスト</a></li><li class="divider"></li><li class=""><a class="account-menu__menu__link" href="/webclass/eportfolio.php/showcases/?acs_=989a77d3"  >ショーケースポートフォリオ</a></li><li class="divider"></li><li class=""><a class="account-menu__menu__link" href="/webclass/user.php/config?acs_=989a77d3" target="AccountAlt" onclick="openPopupWindow('/webclass/user.php/config?acs_=989a77d3','AccountAlt', 1024, 800)">アカウント情報の変更</a></li><li class=""><a class="account-menu__menu__link" href="/webclass/user.php/switchLanguage?language=ENGLISH&amp;acs_=989a77d3"  >English</a></li><li class=""><a class="account-menu__menu__link" href="/webclass/user.php/manual?popup=1&amp;acs_=989a77d3" target="HelpWindow" onclick="openPopupWindow('/webclass/user.php/manual?popup=1&acs_=989a77d3', 'HelpWindow', 1024, 800)">マニュアル</a></li>                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div class="container" >
-            <div class="collapse navbar-collapse" id="menu">
-                <ul class="nav navbar-nav navbar-right"><li><a href="/webclass/logout.php?acs_=989a77d3">ログアウト</a></li><li class="nav-divider"></li></ul>                <ul class="nav navbar-nav navbar-right visible-xs"><li><a href="/webclass/course.php/6C490-2023/logout?acs_=989a77d3">コースリスト</a></li><li class="nav-divider"></li></ul>                <ul class="nav navbar-nav navbar-left">
-                    <li class=" active"><a  href="/webclass/course.php/6C490-2023/?acs_=989a77d3#contents"><i class="fa fa-file-text fa-fw" aria-hidden="true"></i>&nbsp;教材</a></li><li class=" "><a  href="/webclass/course.php/6C490-2023/my-reports?acs_=989a77d3"><i class="fa fa-file-text fa-fw" aria-hidden="true"></i>&nbsp;マイレポート</a></li><li class="visible-xs "><a  href="/webclass/course.php/6C490-2023/?acs_=989a77d3#timeline"><i class="fa  fa-fw" aria-hidden="true"></i>&nbsp;タイムライン</a></li><li class="dropdown "><a href="" class="dropdown-toggle" data-toggle="dropdown">成績<span class="caret"></span></a><ul class="dropdown-menu"><li class=""><a class="" href="/webclass/course.php/6C490-2023/scores?acs_=989a77d3"  ><i class="fa fa-file-text fa-fw" aria-hidden="true"></i>&nbsp;集計</a></li><li class=""><a class="" href="/webclass/course.php/6C490-2023/area-score?acs_=989a77d3"  ><i class="fa fa-file-text fa-fw" aria-hidden="true"></i>&nbsp;出題分野ごとの成績</a></li><li class=""><a class="" href="/webclass/reslt_frame.php?acs_=989a77d3"  ><i class="fa  fa-fw" aria-hidden="true"></i>&nbsp;テスト結果</a></li><li class=""><a class="" href="/webclass/eportfolio.php/assessments/view_personal_summary_sheet?acs_=989a77d3"  ><i class="fa  fa-fw" aria-hidden="true"></i>&nbsp;e ポートフォリオ・コンテナ評価分析</a></li><li class=""><a class="showCourseLearningLayoutModalButton" href="#scorm-report"  ><i class="fa  fa-fw" aria-hidden="true"></i>&nbsp;SCORM教材の成績一覧</a></li></ul></li><li class=" "><a  href="/webclass/course.php/6C490-2023/attendance?acs_=989a77d3"><i class="fa fa-file-text fa-fw" aria-hidden="true"></i>&nbsp;出席</a></li><li class="dropdown "><a href="" class="dropdown-toggle" data-toggle="dropdown">アンケート<span class="caret"></span></a><ul class="dropdown-menu"><li class=""><a class="" href="/webclass/ip_mods.php/plugin/survey/my-surveys-view/surveys/course/6C490-2023"  ><i class="fa  fa-fw" aria-hidden="true"></i>&nbsp;回答が必要なアンケート (1)</a></li></ul></li><li class="dropdown "><a href="" class="dropdown-toggle" data-toggle="dropdown">シラバスシステム<span class="caret"></span></a><ul class="dropdown-menu"><li class=""><a class="showInIframeButton" href="/webclass/ip_mods.php/addon/miyazaki-u/plugin/syllabus/course-syllabus/view?organization_id=dd3f24e6dbf1462cebce3c49024039c0"  ><i class="fa  fa-fw" aria-hidden="true"></i>&nbsp;シラバス</a></li><li class=""><a class="showInIframeButton" href="/webclass/ip_mods.php/addon/miyazaki-u/plugin/syllabus/class-plan/classPlanView?organization_id=dd3f24e6dbf1462cebce3c49024039c0"  ><i class="fa  fa-fw" aria-hidden="true"></i>&nbsp;授業計画</a></li></ul></li><li class="dropdown "><a href="" class="dropdown-toggle" data-toggle="dropdown">その他<span class="caret"></span></a><ul class="dropdown-menu"><li class=""><a class="showCourseLearningLayoutModalButton" href="#carte"  ><i class="fa  fa-fw" aria-hidden="true"></i>&nbsp;学習カルテ</a></li><li class=""><a class="" href="/webclass/course.php/6C490-2023/my-note/?acs_=989a77d3"  ><i class="fa fa-file-text fa-fw" aria-hidden="true"></i>&nbsp;ノート</a></li></ul></li><li class="dropdown "><a href="" class="dropdown-toggle" data-toggle="dropdown">コース<span class="caret"></span></a><ul class="dropdown-menu"><li class=""><a class="" href="/webclass/course.php/6C490-2023/info?acs_=989a77d3"  ><i class="fa fa-file-text fa-fw" aria-hidden="true"></i>&nbsp;開講情報</a></li><li class=""><a class="" href="/webclass/course.php/6C490-2023/access-log?acs_=989a77d3"  ><i class="fa fa-file-text fa-fw" aria-hidden="true"></i>&nbsp;アクセスログ</a></li></ul></li>                </ul>
-                <ul class="nav navbar-nav navbar-left visible-xs-block">
-                    <li class="nav-divider"></li>
-                    <li class="dropdown">
-                        <a href="" class="dropdown-toggle" data-toggle="dropdown">前中　優里<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li class=""><a class="account-menu__menu__link" href="/webclass/course.php/6C490-2023/logout?acs_=989a77d3"  >コースリスト</a></li><li class="divider"></li><li class=""><a class="account-menu__menu__link" href="/webclass/eportfolio.php/showcases/?acs_=989a77d3"  >ショーケースポートフォリオ</a></li><li class="divider"></li><li class=""><a class="account-menu__menu__link" href="/webclass/user.php/config?acs_=989a77d3" target="AccountAlt" onclick="openPopupWindow('/webclass/user.php/config?acs_=989a77d3','AccountAlt', 1024, 800)">アカウント情報の変更</a></li><li class=""><a class="account-menu__menu__link" href="/webclass/user.php/switchLanguage?language=ENGLISH&amp;acs_=989a77d3"  >English</a></li><li class=""><a class="account-menu__menu__link" href="/webclass/user.php/manual?popup=1&amp;acs_=989a77d3" target="HelpWindow" onclick="openPopupWindow('/webclass/user.php/manual?popup=1&acs_=989a77d3', 'HelpWindow', 1024, 800)">マニュアル</a></li>                        </ul>
-                    </li>
-
-                                        <li>
-                        <a href="/webclass/mbl.php/messages/?acs_=989a77d3" target="msgeditor">メッセージ                            <span id="mobile-menu-message-badge" class="badge hidden hd-mobileMenu_messageBadge"></span>
-                        </a>
-                    </li>
-                                                            <li>
-                        <a href="/webclass/mbl.php/information/?acs_=989a77d3" target="msgeditor">お知らせ                            <span id="mobile-menu-information-badge" class="badge hidden hd-mobileMenu_informationBadge"></span>
-                        </a>
-                    </li>
-                                    </ul>
-
-                <ul class="nav navbar-nav navbar-left visible-xs-block">
-                                </ul>
-            </div>
-        </div>
-    </nav>
-    <div id="top-info">
-                            </div>
-</header>
-<main id="js-main">
-    <script class="js-message" type="application/json">{"COURSE_TIMELINE":"\u30bf\u30a4\u30e0\u30e9\u30a4\u30f3","COURSE_CONTENTS":"\u6559\u6750\u4e00\u89a7"}</script>
-<style>
-    .hiddenContent {
-        background-color: #eee;
-    }
-    .hiddenContent .cm-contentsList_contentName a:link,
-    .hiddenContent .cm-contentsList_contentName a:visited,
-    .hiddenContent .cm-contentsList_contentName a:hover
-    {
-        color: #999;
-    }
-    .content-kind-mark {
-        font-size: 11px;
-    }
-    .content-kind-Scenario {
-        background-color: #ff9999;
-        color: #fff;
-    }
-    .content-kind-Textbook {
-        background-color: #77b60a;
-        color: #fff;
-    }
-    .content-kind-scorm {
-        background-color: #f7c942;
-        color: #333;
-    }
-    .content-kind-lti {
-        background-color: #f7c942;
-        color: #333;
-    }
-    .content-kind-selfstudy {
-        background-color: #eb9b6f;
-        color: #fff;
-    }
-    .content-kind-qanda {
-        background-color: #eb9b6f;
-        color: #fff;
-    }
-    .content-kind-examine {
-        background-color: #eb9b6f;
-        color: #fff;
-    }
-    .content-kind-carte {
-        background-color: #eb9b6f;
-        color: #fff;
-    }
-    .content-kind-report {
-        background-color: #eb9b6f;
-        color: #fff;
-    }
-    .content-kind-anonymous_enquete {
-        background-color: #eb9b6f;
-        color: #fff;
-    }
-    .content-kind-enquete {
-        background-color: #eb9b6f;
-        color: #fff;
-    }
-    .content-kind-bbs {
-        background-color: #3399FF;
-        color: #fff;
-    }
-    .content-kind-chat {
-        background-color: #3399FF;
-        color: #fff;
-    }
-    .content-kind-wiki {
-        background-color: #3399FF;
-        color: #fff;
-    }
-    .content-kind-EportfolioContainer {
-        background-color: #6666FF;
-        color: #fff;
-    }
-</style>
-<script>
-    function scrollGoTop() {
-        $('body,html').animate({
-            scrollTop: 0
-        }, 500);
-        return false;
-    }
-
-    function switchQuestion(url) {
-        $('body,html').stop();
-        $('#labelModal').modal('hide');
-
-        setTimeout(function() {
-            var parser = document.createElement('a');
-            parser.href = url;
-            if ($(parser.hash).size()) {
-                $('body,html').animate({'scrollTop': $(parser.hash).offset().top},300);
-            } else {
-                location.href=url;
-            }
-        }, 100);
-    }
-</script>
-
-<div class="container">
-    <div id="js-contents">
-        <course-learning-index
-            timeline_thread_id=""
-            timeline_contents_id=""
-            enable_timeline="1"
-        >
-            <div slot="page-head">
-                <div v-pre>
-                                    </div>
-            </div>
-            <div slot="contents">
-                <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
-                    <div class="clearfix">
-                        <div class="visible-xs pull-right">
-                            <button type="button" class="btn btn-primary modalBtn" data-toggle="modal" data-target="#labelModal">ラベル一覧を表示する</button>
-                            <!-- 空白の調整 -->
-                            <p></p>
-                        </div>
-
-                        <!-- モーダル・ダイアログ -->
-                        <div class="modal" id="labelModal" tabindex="-1">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-                                        <h4 class="modal-title">ラベル一覧</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                                                                    <ul class="cm-sideNav_folders">
-                                                                                                    <li><a class="cm-sideNav_folderLink" href="javascript:switchQuestion('#2410cc7a4b002c9288a1b6decd0a62fa')"><span
-                                                                v-pre>第1回</span></a></li>
-
-                                                                                                    <li><a class="cm-sideNav_folderLink" href="javascript:switchQuestion('#c08ecc5b595878095922c2220e346998')"><span
-                                                                v-pre>第2回</span></a></li>
-
-                                                                                                    <li><a class="cm-sideNav_folderLink" href="javascript:switchQuestion('#cf99f2a67dfa3949366379a2ce28d5e8')"><span
-                                                                v-pre>第3回</span></a></li>
-
-                                                                                                    <li><a class="cm-sideNav_folderLink" href="javascript:switchQuestion('#93e8f4e2963630b4a6607ba46ddd36ff')"><span
-                                                                v-pre>第4回</span></a></li>
-
-                                                                                                    <li><a class="cm-sideNav_folderLink" href="javascript:switchQuestion('#c88697f0f15450b1f4c04c6083d51676')"><span
-                                                                v-pre>第5回</span></a></li>
-
-                                                                                                    <li><a class="cm-sideNav_folderLink" href="javascript:switchQuestion('#75e33ef9bbcc2875fee83f703775c4ce')"><span
-                                                                v-pre>第6回</span></a></li>
-
-                                                                                                    <li><a class="cm-sideNav_folderLink" href="javascript:switchQuestion('#c72d3e2f952fe95387cbf5f7fc3ab31f')"><span
-                                                                v-pre>第7回</span></a></li>
-
-                                                                                                    <li><a class="cm-sideNav_folderLink" href="javascript:switchQuestion('#64d1a26dfa3694334a008fe01ef3e1c4')"><span
-                                                                v-pre>第8回</span></a></li>
-
-                                                                                                    <li><a class="cm-sideNav_folderLink" href="javascript:switchQuestion('#f5cd2f1ce4fda45b9af7909499a960c4')"><span
-                                                                v-pre>第9回</span></a></li>
-
-                                                                                            </ul>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                                                                    <section id="2410cc7a4b002c9288a1b6decd0a62fa"
-                                         class="panel panel-default cl-contentsList_folder">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">第1回</h4>
-                                    </div>
-                                    <div class="list-group">
-                                                                                    <section class="list-group-item cl-contentsList_listGroupItem">
-                                                    <div class="cl-contentsList_content">
-        <div class="cl-contentsList_contentInfo">
-            <h4 class="cm-contentsList_contentName">
-                <a href="/webclass/do_contents.php?reset_status=1&set_contents_id=3861a18d87609913991524b2b95ffdcf">第1回資料</a>            </h4>
-            <div class="cl-contentsList_categoryLabel">資料</div>        </div>
-                    <div class="cl-contentsList_contentDetail">
-                <div class="cl-contentsList_contentDetailList">
-                    <div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/3861a18d87609913991524b2b95ffdcf/?acs_=989a77d3">詳細</a></div></div><div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/3861a18d87609913991524b2b95ffdcf/history?acs_=989a77d3">利用回数 8</a></div></div>                </div>
-            </div>
-            </div>
-                                                </section>
-                                                                                    <section class="list-group-item cl-contentsList_listGroupItem">
-                                                    <div class="cl-contentsList_content">
-        <div class="cl-contentsList_contentInfo">
-            <h4 class="cm-contentsList_contentName">
-                <div>第1回レポート</div>            </h4>
-            <div class="cl-contentsList_categoryLabel">レポート</div><div class='cm-contentsList_contentDetailListItem'><div class='cm-contentsList_contentDetailListItemLabel'>利用可能期間</div><div class='cm-contentsList_contentDetailListItemData'>  2023/10/02 12:00 - 2023/10/06 12:00</div></div>        </div>
-                    <div class="cl-contentsList_contentDetail">
-                <div class="cl-contentsList_contentDetailList">
-                    <div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/a9b28888e9f359ac7efe27caa82b08e0/?acs_=989a77d3">詳細</a></div></div><div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/a9b28888e9f359ac7efe27caa82b08e0/history?acs_=989a77d3">利用回数 3</a></div></div>                </div>
-            </div>
-            </div>
-                                                </section>
-                                                                            </div>
-                                </section>
-                                                            <section id="c08ecc5b595878095922c2220e346998"
-                                         class="panel panel-default cl-contentsList_folder">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">第2回</h4>
-                                    </div>
-                                    <div class="list-group">
-                                                                                    <section class="list-group-item cl-contentsList_listGroupItem">
-                                                    <div class="cl-contentsList_content">
-        <div class="cl-contentsList_contentInfo">
-            <h4 class="cm-contentsList_contentName">
-                <a href="/webclass/do_contents.php?reset_status=1&set_contents_id=ddb1c601e5268269c0f1f80b39d464ff">第2回資料</a>            </h4>
-            <div class="cl-contentsList_categoryLabel">資料</div>        </div>
-                    <div class="cl-contentsList_contentDetail">
-                <div class="cl-contentsList_contentDetailList">
-                    <div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/ddb1c601e5268269c0f1f80b39d464ff/?acs_=989a77d3">詳細</a></div></div><div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/ddb1c601e5268269c0f1f80b39d464ff/history?acs_=989a77d3">利用回数 10</a></div></div>                </div>
-            </div>
-            </div>
-                                                </section>
-                                                                                    <section class="list-group-item cl-contentsList_listGroupItem">
-                                                    <div class="cl-contentsList_content">
-        <div class="cl-contentsList_contentInfo">
-            <h4 class="cm-contentsList_contentName">
-                <div>第2回レポート</div>            </h4>
-            <div class="cl-contentsList_categoryLabel">レポート</div><div class='cm-contentsList_contentDetailListItem'><div class='cm-contentsList_contentDetailListItemLabel'>利用可能期間</div><div class='cm-contentsList_contentDetailListItemData'>  2023/10/10 12:00 - 2023/10/13 12:00</div></div>        </div>
-                    <div class="cl-contentsList_contentDetail">
-                <div class="cl-contentsList_contentDetailList">
-                    <div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/75a59b7066a0d576b2d00da1c6899250/?acs_=989a77d3">詳細</a></div></div><div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/75a59b7066a0d576b2d00da1c6899250/history?acs_=989a77d3">利用回数 1</a></div></div>                </div>
-            </div>
-            </div>
-                                                </section>
-                                                                                    <section class="list-group-item cl-contentsList_listGroupItem">
-                                                    <div class="cl-contentsList_content">
-        <div class="cl-contentsList_contentInfo">
-            <h4 class="cm-contentsList_contentName">
-                <a href="/webclass/do_contents.php?reset_status=1&set_contents_id=02cbe5a7f92138f7fa8fe7c4d1977039">第2回補足資料</a>            </h4>
-            <div class="cl-contentsList_categoryLabel">資料</div>        </div>
-                    <div class="cl-contentsList_contentDetail">
-                <div class="cl-contentsList_contentDetailList">
-                    <div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/02cbe5a7f92138f7fa8fe7c4d1977039/?acs_=989a77d3">詳細</a></div></div><div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/02cbe5a7f92138f7fa8fe7c4d1977039/history?acs_=989a77d3">利用回数 2</a></div></div>                </div>
-            </div>
-            </div>
-                                                </section>
-                                                                                    <section class="list-group-item cl-contentsList_listGroupItem">
-                                                    <div class="cl-contentsList_content">
-        <div class="cl-contentsList_contentInfo">
-            <h4 class="cm-contentsList_contentName">
-                <a href="/webclass/do_contents.php?reset_status=1&set_contents_id=01a80cf6f7954b73fdd15d4215b3af5e">第2回資料（略解あり）</a>            </h4>
-            <div class="cl-contentsList_categoryLabel">資料</div>        </div>
-                    <div class="cl-contentsList_contentDetail">
-                <div class="cl-contentsList_contentDetailList">
-                    <div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/01a80cf6f7954b73fdd15d4215b3af5e/?acs_=989a77d3">詳細</a></div></div><div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/01a80cf6f7954b73fdd15d4215b3af5e/history?acs_=989a77d3">利用回数 6</a></div></div>                </div>
-            </div>
-            </div>
-                                                </section>
-                                                                            </div>
-                                </section>
-                                                            <section id="cf99f2a67dfa3949366379a2ce28d5e8"
-                                         class="panel panel-default cl-contentsList_folder">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">第3回</h4>
-                                    </div>
-                                    <div class="list-group">
-                                                                                    <section class="list-group-item cl-contentsList_listGroupItem">
-                                                    <div class="cl-contentsList_content">
-        <div class="cl-contentsList_contentInfo">
-            <h4 class="cm-contentsList_contentName">
-                <a href="/webclass/do_contents.php?reset_status=1&set_contents_id=a80e3071714d4f5c93349b72ed569339">第3回資料</a>            </h4>
-            <div class="cl-contentsList_categoryLabel">資料</div>        </div>
-                    <div class="cl-contentsList_contentDetail">
-                <div class="cl-contentsList_contentDetailList">
-                    <div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/a80e3071714d4f5c93349b72ed569339/?acs_=989a77d3">詳細</a></div></div><div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/a80e3071714d4f5c93349b72ed569339/history?acs_=989a77d3">利用回数 13</a></div></div>                </div>
-            </div>
-            </div>
-                                                </section>
-                                                                                    <section class="list-group-item cl-contentsList_listGroupItem">
-                                                    <div class="cl-contentsList_content">
-        <div class="cl-contentsList_contentInfo">
-            <h4 class="cm-contentsList_contentName">
-                <div>第3回レポート</div>            </h4>
-            <div class="cl-contentsList_categoryLabel">レポート</div><div class='cm-contentsList_contentDetailListItem'><div class='cm-contentsList_contentDetailListItemLabel'>利用可能期間</div><div class='cm-contentsList_contentDetailListItemData'>  2023/10/16 12:00 - 2023/10/20 12:00</div></div>        </div>
-                    <div class="cl-contentsList_contentDetail">
-                <div class="cl-contentsList_contentDetailList">
-                    <div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/f544ca4523ee023a0103e5c11212cb18/?acs_=989a77d3">詳細</a></div></div>                </div>
-            </div>
-            </div>
-                                                </section>
-                                                                                    <section class="list-group-item cl-contentsList_listGroupItem">
-                                                    <div class="cl-contentsList_content">
-        <div class="cl-contentsList_contentInfo">
-            <h4 class="cm-contentsList_contentName">
-                <a href="/webclass/do_contents.php?reset_status=1&set_contents_id=7730d329c1e2002f607d7a33c10390b1">第3回補足資料</a>            </h4>
-            <div class="cl-contentsList_categoryLabel">資料</div>        </div>
-                    <div class="cl-contentsList_contentDetail">
-                <div class="cl-contentsList_contentDetailList">
-                    <div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/7730d329c1e2002f607d7a33c10390b1/?acs_=989a77d3">詳細</a></div></div><div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/7730d329c1e2002f607d7a33c10390b1/history?acs_=989a77d3">利用回数 4</a></div></div>                </div>
-            </div>
-            </div>
-                                                </section>
-                                                                                    <section class="list-group-item cl-contentsList_listGroupItem">
-                                                    <div class="cl-contentsList_content">
-        <div class="cl-contentsList_contentInfo">
-            <h4 class="cm-contentsList_contentName">
-                <a href="/webclass/do_contents.php?reset_status=1&set_contents_id=8fc93fced5a952c5eaf3d198ccc2231a">第3回資料（略解あり）</a>            </h4>
-            <div class="cl-contentsList_categoryLabel">資料</div>        </div>
-                    <div class="cl-contentsList_contentDetail">
-                <div class="cl-contentsList_contentDetailList">
-                    <div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/8fc93fced5a952c5eaf3d198ccc2231a/?acs_=989a77d3">詳細</a></div></div><div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/8fc93fced5a952c5eaf3d198ccc2231a/history?acs_=989a77d3">利用回数 9</a></div></div>                </div>
-            </div>
-            </div>
-                                                </section>
-                                                                            </div>
-                                </section>
-                                                            <section id="93e8f4e2963630b4a6607ba46ddd36ff"
-                                         class="panel panel-default cl-contentsList_folder">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">第4回</h4>
-                                    </div>
-                                    <div class="list-group">
-                                                                                    <section class="list-group-item cl-contentsList_listGroupItem">
-                                                    <div class="cl-contentsList_content">
-        <div class="cl-contentsList_contentInfo">
-            <h4 class="cm-contentsList_contentName">
-                <a href="/webclass/do_contents.php?reset_status=1&set_contents_id=c45e270f5578eebb709e2fa15e4e798c">第4回資料</a>            </h4>
-            <div class="cl-contentsList_categoryLabel">資料</div>        </div>
-                    <div class="cl-contentsList_contentDetail">
-                <div class="cl-contentsList_contentDetailList">
-                    <div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/c45e270f5578eebb709e2fa15e4e798c/?acs_=989a77d3">詳細</a></div></div><div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/c45e270f5578eebb709e2fa15e4e798c/history?acs_=989a77d3">利用回数 18</a></div></div>                </div>
-            </div>
-            </div>
-                                                </section>
-                                                                                    <section class="list-group-item cl-contentsList_listGroupItem">
-                                                    <div class="cl-contentsList_content">
-        <div class="cl-contentsList_contentInfo">
-            <h4 class="cm-contentsList_contentName">
-                <a href="/webclass/do_contents.php?reset_status=1&set_contents_id=65b4274e1ad371a9d1e331d59773f01d">第4回補足資料</a>            </h4>
-            <div class="cl-contentsList_categoryLabel">資料</div>        </div>
-                    <div class="cl-contentsList_contentDetail">
-                <div class="cl-contentsList_contentDetailList">
-                    <div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/65b4274e1ad371a9d1e331d59773f01d/?acs_=989a77d3">詳細</a></div></div><div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/65b4274e1ad371a9d1e331d59773f01d/history?acs_=989a77d3">利用回数 3</a></div></div>                </div>
-            </div>
-            </div>
-                                                </section>
-                                                                            </div>
-                                </section>
-                                                            <section id="c88697f0f15450b1f4c04c6083d51676"
-                                         class="panel panel-default cl-contentsList_folder">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">第5回</h4>
-                                    </div>
-                                    <div class="list-group">
-                                                                                    <section class="list-group-item cl-contentsList_listGroupItem">
-                                                    <div class="cl-contentsList_content">
-        <div class="cl-contentsList_contentInfo">
-            <h4 class="cm-contentsList_contentName">
-                <a href="/webclass/do_contents.php?reset_status=1&set_contents_id=254de83f248c88e8b8a13c6e38e97e8e">第5回資料</a>            </h4>
-            <div class="cl-contentsList_categoryLabel">資料</div>        </div>
-                    <div class="cl-contentsList_contentDetail">
-                <div class="cl-contentsList_contentDetailList">
-                    <div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/254de83f248c88e8b8a13c6e38e97e8e/?acs_=989a77d3">詳細</a></div></div><div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/254de83f248c88e8b8a13c6e38e97e8e/history?acs_=989a77d3">利用回数 9</a></div></div>                </div>
-            </div>
-            </div>
-                                                </section>
-                                                                            </div>
-                                </section>
-                                                            <section id="75e33ef9bbcc2875fee83f703775c4ce"
-                                         class="panel panel-default cl-contentsList_folder">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">第6回</h4>
-                                    </div>
-                                    <div class="list-group">
-                                                                                    <section class="list-group-item cl-contentsList_listGroupItem">
-                                                    <div class="cl-contentsList_content">
-        <div class="cl-contentsList_contentInfo">
-            <h4 class="cm-contentsList_contentName">
-                <a href="/webclass/do_contents.php?reset_status=1&set_contents_id=368b4abb0ac96b2e0c960d1a89ebb979">第6回資料</a>            </h4>
-            <div class="cl-contentsList_categoryLabel">資料</div>        </div>
-                    <div class="cl-contentsList_contentDetail">
-                <div class="cl-contentsList_contentDetailList">
-                    <div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/368b4abb0ac96b2e0c960d1a89ebb979/?acs_=989a77d3">詳細</a></div></div><div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/368b4abb0ac96b2e0c960d1a89ebb979/history?acs_=989a77d3">利用回数 9</a></div></div>                </div>
-            </div>
-            </div>
-                                                </section>
-                                                                            </div>
-                                </section>
-                                                            <section id="c72d3e2f952fe95387cbf5f7fc3ab31f"
-                                         class="panel panel-default cl-contentsList_folder">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">第7回</h4>
-                                    </div>
-                                    <div class="list-group">
-                                                                                    <section class="list-group-item cl-contentsList_listGroupItem">
-                                                    <div class="cl-contentsList_content">
-        <div class="cl-contentsList_contentInfo">
-            <h4 class="cm-contentsList_contentName">
-                <a href="/webclass/do_contents.php?reset_status=1&set_contents_id=53ddc24e0f4f8302e8dffe765a5b7216">第7回資料</a>            </h4>
-            <div class="cl-contentsList_categoryLabel">資料</div>        </div>
-                    <div class="cl-contentsList_contentDetail">
-                <div class="cl-contentsList_contentDetailList">
-                    <div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/53ddc24e0f4f8302e8dffe765a5b7216/?acs_=989a77d3">詳細</a></div></div><div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/53ddc24e0f4f8302e8dffe765a5b7216/history?acs_=989a77d3">利用回数 12</a></div></div>                </div>
-            </div>
-            </div>
-                                                </section>
-                                                                            </div>
-                                </section>
-                                                            <section id="64d1a26dfa3694334a008fe01ef3e1c4"
-                                         class="panel panel-default cl-contentsList_folder">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">第8回</h4>
-                                    </div>
-                                    <div class="list-group">
-                                                                                    <section class="list-group-item cl-contentsList_listGroupItem">
-                                                    <div class="cl-contentsList_content">
-        <div class="cl-contentsList_contentInfo">
-            <h4 class="cm-contentsList_contentName">
-                <div class='cl-contentsList_new'>New</div><a href="/webclass/do_contents.php?reset_status=1&set_contents_id=d002f67d3f2f8c4277154c6aa43f5517">中間試験略解</a>            </h4>
-            <div class="cl-contentsList_categoryLabel">資料</div>        </div>
-                    <div class="cl-contentsList_contentDetail">
-                <div class="cl-contentsList_contentDetailList">
-                    <div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/d002f67d3f2f8c4277154c6aa43f5517/?acs_=989a77d3">詳細</a></div></div><div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/d002f67d3f2f8c4277154c6aa43f5517/history?acs_=989a77d3">利用回数 2</a></div></div>                </div>
-            </div>
-            </div>
-                                                </section>
-                                                                                    <section class="list-group-item cl-contentsList_listGroupItem">
-                                                    <div class="cl-contentsList_content">
-        <div class="cl-contentsList_contentInfo">
-            <h4 class="cm-contentsList_contentName">
-                <div class='cl-contentsList_new'>New</div><a href="/webclass/do_contents.php?reset_status=1&set_contents_id=397b2cfaed441f7d0569ffc5ece560e3">得点分布</a>            </h4>
-            <div class="cl-contentsList_categoryLabel">資料</div>        </div>
-                    <div class="cl-contentsList_contentDetail">
-                <div class="cl-contentsList_contentDetailList">
-                    <div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/397b2cfaed441f7d0569ffc5ece560e3/?acs_=989a77d3">詳細</a></div></div><div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/397b2cfaed441f7d0569ffc5ece560e3/history?acs_=989a77d3">利用回数 4</a></div></div>                </div>
-            </div>
-            </div>
-                                                </section>
-                                                                            </div>
-                                </section>
-                                                            <section id="f5cd2f1ce4fda45b9af7909499a960c4"
-                                         class="panel panel-default cl-contentsList_folder">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">第9回</h4>
-                                    </div>
-                                    <div class="list-group">
-                                                                                    <section class="list-group-item cl-contentsList_listGroupItem">
-                                                    <div class="cl-contentsList_content">
-        <div class="cl-contentsList_contentInfo">
-            <h4 class="cm-contentsList_contentName">
-                <div class='cl-contentsList_new'>New</div><a href="/webclass/do_contents.php?reset_status=1&set_contents_id=b3608892e31543f83505db1bd12a25d3">第9回資料</a>            </h4>
-            <div class="cl-contentsList_categoryLabel">資料</div>        </div>
-                    <div class="cl-contentsList_contentDetail">
-                <div class="cl-contentsList_contentDetailList">
-                    <div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/b3608892e31543f83505db1bd12a25d3/?acs_=989a77d3">詳細</a></div></div><div class='cl-contentsList_contentDetailListItem'><div class='cl-contentsList_contentDetailListItemData'><a href="/webclass/course.php/6C490-2023/contents/b3608892e31543f83505db1bd12a25d3/history?acs_=989a77d3">利用回数 1</a></div></div>                </div>
-            </div>
-            </div>
-                                                </section>
-                                                                            </div>
-                                </section>
-                                                <div align="center" style="margin-bottom: 1em">
-                        <button type="button" onclick="scrollGoTop()" class="btn btn-default">Top</button>
-                    </div>
-                </div>
-            </div>
-            <div slot="labels">
-                <div class="col-sm-4 col-md-3 col-lg-2 hidden-xs cm-sideNav_container">
-                                    <ul class="cm-sideNav_folders">
-                                                    <li><a class="cm-sideNav_folderLink" href="#2410cc7a4b002c9288a1b6decd0a62fa"><span
-                                        v-pre>第1回</span></a></li>
-                                                    <li><a class="cm-sideNav_folderLink" href="#c08ecc5b595878095922c2220e346998"><span
-                                        v-pre>第2回</span></a></li>
-                                                    <li><a class="cm-sideNav_folderLink" href="#cf99f2a67dfa3949366379a2ce28d5e8"><span
-                                        v-pre>第3回</span></a></li>
-                                                    <li><a class="cm-sideNav_folderLink" href="#93e8f4e2963630b4a6607ba46ddd36ff"><span
-                                        v-pre>第4回</span></a></li>
-                                                    <li><a class="cm-sideNav_folderLink" href="#c88697f0f15450b1f4c04c6083d51676"><span
-                                        v-pre>第5回</span></a></li>
-                                                    <li><a class="cm-sideNav_folderLink" href="#75e33ef9bbcc2875fee83f703775c4ce"><span
-                                        v-pre>第6回</span></a></li>
-                                                    <li><a class="cm-sideNav_folderLink" href="#c72d3e2f952fe95387cbf5f7fc3ab31f"><span
-                                        v-pre>第7回</span></a></li>
-                                                    <li><a class="cm-sideNav_folderLink" href="#64d1a26dfa3694334a008fe01ef3e1c4"><span
-                                        v-pre>第8回</span></a></li>
-                                                    <li><a class="cm-sideNav_folderLink" href="#f5cd2f1ce4fda45b9af7909499a960c4"><span
-                                        v-pre>第9回</span></a></li>
-                                            </ul>
-                                </div>
-            </div>
-        </course-learning-index>
-    </div>
+    <form name='menu' method='POST' action='/webclass/txtbk_show_chapter.php?page=1&amp;set_contents_id=cc4e20e8125fab1df9a57ec55663da1d&amp;contents_name=%E3%80%90%E5%8F%82%E8%80%83%E3%80%9101-1+%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E8%A8%80%E8%AA%9E%E8%AB%96%2806%3A20%29&amp;acs_=c06019ec#showhere' autocomplete='off' style="width:100%;">
+        <input type='hidden' name='s' value='YTo1OntzOjg6ImJvb2ttYXJrIjtpOjE7czo3OiJjb250ZW50IjthOjE6e2k6MTthOjY6e3M6MjoiSDIiO3M6MDoiIjtzOjQ6IlRFWFQiO3M6MzI6IjQ3NjJhOWVjMTQ3MWM1MTc5NWU5MGU4OWM1ZTBhODJhIjtzOjQ6IkZJTEUiO3M6NTk6IjIxMjMxMmMwN2I3ZjU4NGZkYzI4OGVmODlkMjA2YzhlL3BsYXlsaXN0XzEwMjR4NzY4JjR4My5tM3U4IjtzOjM6InVybCI7czozMzk6Ii93ZWJjbGFzcy90eHRia19zaG93X3RleHQucGhwP3BhZ2U9MSZ0ZXh0PTQ3NjJhOWVjMTQ3MWM1MTc5NWU5MGU4OWM1ZTBhODJhJmZpbGU9MjEyMzEyYzA3YjdmNTg0ZmRjMjg4ZWY4OWQyMDZjOGUlMkZwbGF5bGlzdF8xMDI0eDc2OCUyNjR4My5tM3U4JmNvbnRlbnRzX2Rpcj0lMkZvcHQlMkZ3ZWJjbGFzcyUyRndlYnJvb3QlMkZ3ZWJjbGFzcyUyRmRhdGElMkZjb3Vyc2UlMkY2YyUyRjZDNTMwLTIwMjMlMkYmY29udGVudHNfdXJsPSUyRndlYmNsYXNzJTJGZGF0YSUyRmNvdXJzZSUyRjZjJTJGNkM1MzAtMjAyMyUyRiZjb250ZW50c19pZD1jYzRlMjBlODEyNWZhYjFkZjlhNTdlYzU1NjYzZGExZCI7czo3OiJjaGFwdGVyIjtpOjE7czo3OiJzZWN0aW9uIjtpOjE7fX1zOjExOiJjb250ZW50c19pZCI7czozMjoiY2M0ZTIwZTgxMjVmYWIxZGY5YTU3ZWM1NTY2M2RhMWQiO3M6ODoiZW5kX3BhZ2UiO3M6MToiMSI7czo1OiJzdHlsZSI7YTo1OntzOjExOiJjb250ZW50c19pZCI7czozMjoiY2M0ZTIwZTgxMjVmYWIxZGY5YTU3ZWM1NTY2M2RhMWQiO3M6MTI6InNob3dfY29udGVudCI7czoxOiIxIjtzOjE1OiJ0ZXh0Ym9va19vZmZzZXQiO3M6MToiMCI7czoxMDoic2hvd190aXRsZSI7czoxOiIxIjtzOjE1OiJlbmFibGVfYm9va21hcmsiO3M6MToiMCI7fX0='><input type='hidden' name='contents_url' value='/webclass/data/course/6c/6C530-2023/'><input type='hidden' name='contents_dir' value='/opt/webclass/webroot/webclass/data/course/6c/6C530-2023/'><input type='hidden' name='set_contents_id' value='cc4e20e8125fab1df9a57ec55663da1d'><input type='hidden' name='contents_name' value='【参考】01-1 プログラム言語論(06:20)'><input type='hidden' name='time_limit' value='0'><input type='hidden' name='page_number' value='1'><input type='hidden' name='set_auth_perm' value='user'><input type='hidden' name='printable' value='0'><input type='hidden' name='next_scenario_available' value=''><input type='hidden' name='textbook_offset' value='0'><INPUT type='hidden' name='furl0' value=''><INPUT type='hidden' name='furl1' value=''><INPUT type='hidden' name='furl2' value=''><INPUT type='hidden' name='furl3' value=''><INPUT type='hidden' name='furl4' value=''><INPUT type='hidden' name='furl5' value=''><INPUT type='hidden' name='furl6' value=''><INPUT type='hidden' name='furl7' value=''><INPUT type='hidden' name='furl8' value=''><INPUT type='hidden' name='furl9' value=''><INPUT type='hidden' name='sendCmd'>    <div id="top">
+    <div id="WsTitle" class="bgc_sub">
+  <h1>&gt; プログラム言語論　[6C530:2023年度後期]</h1>
+  <h2 class="">【参考】01-1 プログラム言語論(06:20)</h2>
+  
 </div>
-
-
-    <script class="js-config" type="application/json">{"TOP_URL":"\/webclass\/","language":"JAPANESE","groupId":"6C490-2023","loading_image_url":"\/webclass\/images\/loading.gif","message-alert":true}</script>
-    <script class="js-message"
-            type="application/json">{
-  "delete" : "削除",
-  "exmenu_execute" : "実行",
-  "exmenu_info" : "情報",
-  "exmenu_grade" : "採点",
-  "exmenu_myreport" : "マイレポート",
-  "exmenu_summary" : "集計結果",
-  "content_data_myhistory_num" : "利用回数",
-  "learner_history_num" : "学生の履歴",
-  "learner_active_num" : "利用中の学生数",
-  "report_submit_num" : "レポート提出数",
-  "report_ungraded_num" : "未採点レポート数",
-  "get_new_timeline" : "更新",
-  "get_old_timeline" : "さらに過去の記録を取得",
-  "get_old_timeline_short_label" : "もっと見る",
-  "no_more_activities":"これより過去の活動はありません。",
-  "confirm_to_delete": "削除してもよろしいですか?",
-  "need_message":"メッセージを書き込んでください。",
-  "text_url_placeholder" : "テキスト/URL",
-  "text_url_disabled_placeholder" : "現在は書き込みできません",
-  "file_image_placeholder" : "ファイル/画像",
-  "post_timeline_message" : "送信",
-
-  "text_form_menu" : "書き込み",
-  "publish_contents":"既存の教材を公開",
-  "create_contents_menu" : "教材の作成",
-  "create_chat" : "チャットを作成",
-  "create_enquete" : "簡易アンケートを作成",
-  "create_text":"簡易資料を作成",
-  "create_test" : "簡易テストを作成",
-  "create_report" : "レポート課題を作成",
-  "create_eportfolio_container" : "eポートフォリオ・コンテナの作成",
-
-  "deleted_content_label" : "削除された教材",
-
-  "timeline_config_user_write" : "学生の書き込みを許可",
-  "upload_file_size_limit_was_exceeded": "アップロードファイルサイズの上限 {0} を超えています。ファイルサイズ：{1}",
-  "upload_file_size_is_zero": "アップロードファイルサイズが０です。空のファイルはアップロードできません。",
-  "wait_until_uploading_finishes" : "アップロードが終わるまでお待ちください。",
-  "file_uploading_failed": "ファイルの受け取りに失敗しました。."
-}</script>
-    <script
-        src="/webclass/js/pages/course-learning--contents.js?time=1692424555"></script>
-    <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-    </script>
-    </main>
-<footer class="ft-footer">
-    <div class="container text-center">
-                    <p class="ft-footer_message">Powered by WebClass</p>
-            </div>
-</footer>
-
-
-<style>
-    #courseLearningLayoutModal .modal-content {
-        overflow: hidden;
-    }
-
-    #courseLearningLayoutModal .modal-content {
-        display:flex;
-    }
-    #courseLearningLayoutModal .modal-body {
-        flex : 1;
-        padding: 0;
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    #courseLearningLayoutModal .modal-body-frame {
-        width: 100%;
-        height: 95%;
-    }
-
-</style>
-<div class="modal fade" id="courseLearningLayoutModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" role="document" style="width: 100%; height: 95%;">
-        <div class="modal-content" style="height: 100%;">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title"></h4>
-            </div>
-            <div class="modal-body">
-                <iframe class="modal-body-frame" src="" frameborder="0"></iframe>
-            </div>
-        </div>
+<div id="User">前中　優里 さんがログイン中</div>
+<hr/><TABLE align='center' id='naviLayout'><TR><TD nowrap><button type='button' id='PrevButton' onClick="prevPage()">前のページ</button></TD><TD align='right' nowrap><button type='button' id='NextButton' onClick="nextPage()">次のページ</button></TD></TR><TR><TD colspan='2'><BR></TD></TR><TR><TD align='left'><INPUT name='hide_content' type='button' value='目次を隠す' onClick="hideTOC()"></TD><TD align='right' nowrap><INPUT type='button' name='quit' value='資料を閉じる' onclick='window.quit()'></TD></TR></TABLE>    </div>
+    <div id="TOC">
+        <div style="height: 10px">&nbsp;</div>
+        <table id='TOCLayout'>
+        <TR class=bkkhaki data-page='1'><TD valign='top' nowrap v-pre><A name='showhere'></A><BR></TD><TD valign='top' nowrap><SPAN class='size2 darkslategray'>第1節</SPAN></TD><TD valign='top' width='90%'><SPAN class='size2 darkslategray'><BR></SPAN></TD><TD valign='top'><INPUT TYPE='button' NAME ='clickpage' VALUE=' 1 ' onClick = "gopage('1')"></TD><TD nowrap><BR></TD></TR>
+        </table>
     </div>
-</div>
-
-
-<script id="courseLearningLayoutModalTargetList" type="application/json">[{"label":"SCORM\u6559\u6750\u306e\u6210\u7e3e\u4e00\u89a7","modal_id":"scorm-report","url":"\/webclass\/scormResultView.php?acs_=989a77d3"},{"label":"\u5b66\u7fd2\u30ab\u30eb\u30c6","modal_id":"carte","url":"\/webclass\/carte.php?acs_=989a77d3"}]</script>
-<script>
-    var courseLearningLayoutModalTargetList  = JSON.parse(document.getElementById('courseLearningLayoutModalTargetList').innerHTML);
-    var sessionTimer;
-    function updateSession(){
-        var ajaxrequest_updateSession = '/webclass/session.php/keep';
-        $.ajax({
-            url: ajaxrequest_updateSession,
-            data : {
-            },
-            cache : false,
-            type : "GET",
-            success: function(data) {
-
-            }
-        });
-        setTimeout(updateSession, sessionTimer);
-    }
-
-
-    function showCourseLearningLayoutModal(modal_id) {
-        if (courseLearningLayoutModalTargetList.length){
-            for(var index = 0; index < courseLearningLayoutModalTargetList.length; index++) {
-                if ('#' + courseLearningLayoutModalTargetList[index].modal_id === modal_id){
-
-                    $('#courseLearningLayoutModal')
-                        .find('.modal-body-frame').attr('src', courseLearningLayoutModalTargetList[index].url).end()
-                        .find('.modal-title').html(courseLearningLayoutModalTargetList[index].label).end()
-                        .modal();
-                    break;
-                }
-            }
-        }
-    }
-
-    function loadedIframe() {
-        var iframe = document.getElementById('ip-iframe');
-        if (iframe && iframe.contentWindow) {
-
-            var observer = new MutationObserver(function () {
-                adjustIframeHeight();
-            });
-
-            observer.observe(iframe.contentWindow.document.body, {
-                childList: true,
-                subtree: true,
-                attributes: true,
-                characterData: true,
-            });
-            adjustIframeHeight();
-        }
-    }
-
-    function adjustIframeHeight() {
-        var iframe = document.getElementById('ip-iframe');
-        if (iframe && iframe.contentWindow) {
-            var iframe_height = $(iframe).contents().height() + 'px';
-            $(iframe).attr('height', iframe_height);
-        }
-    }
-
-    $(function () {
-        sessionTimer = 1200000;
-        updateSession();
-
-        $('.showCourseLearningLayoutModalButton').on('click',function (e) {
-            e.preventDefault();
-            showCourseLearningLayoutModal($(this).attr('href'));
-        });
-
-        showCourseLearningLayoutModal(location.hash);
-
-        $('.showInIframeButton').on('click', function (e) {
-            e.preventDefault();
-
-            var iframe = $('<iframe id="ip-iframe" src="" frameborder="0" scrolling="no" style="width: 1px;min-width: 100%;" onload="loadedIframe()" >')
-                .attr('src', $(this).attr('href'));
-            $('#js-main').empty().append(iframe);
-            adjustIframeHeight();
-
-            $('#menu li.active').removeClass('active');
-            $(this).closest('.dropdown').addClass('active');
-        });
-    });
-</script>
+    </form>
+    <div id="app" v-cloak ></div>
 </body>
+<script src="/webclass/js/vendor.js?time=1692424555"></script>
+<script src="/webclass/js/pages/textbook.js?time=1692424555"></script>
 </html>

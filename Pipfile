@@ -9,6 +9,7 @@ defusedxml = "*"
 python-dotenv = "*"
 beautifulsoup4 = "*"
 kivy = "*"
+python-ffmpeg = "*"
 
 [dev-packages]
 
