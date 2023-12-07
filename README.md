@@ -35,7 +35,7 @@
 ※SSOサーバやWebClassの構造・仕様が公開されていない為,以降の説明は推測. 正しいとは限らない</p>
 
 ## SSO認証(SP認証)の流れ
-![image_sso_structure](https://github.com/y6-maenaka/WebClassGetter-mk2/sso_structure.jpeg)
+![image_sso_structure](https://github.com/y6-maenaka/WebClassGetter-mk2/blob/main/sso_structure.jpeg)
 <ol>
 <li>ログインページの取得</li>
 <li>応答URLに含まれるクエリパラメータのjsessionidとexecutionを抽出（SSO認証サーバへの問い合わせに必要）</li><br>
